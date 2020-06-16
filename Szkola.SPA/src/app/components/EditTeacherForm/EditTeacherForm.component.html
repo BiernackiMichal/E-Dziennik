@@ -1,0 +1,69 @@
+<form [formGroup]='editTeacherForm'>
+
+  <mat-form-field>
+    <input
+      formControlName="firstName"
+      placeholder="Imię"
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input
+      formControlName="lastName"
+      placeholder="Nazwisko"
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input
+      formControlName="email"
+      placeholder="E-mail"
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input
+      formControlName="phone"
+      placeholder="numer telefonu"
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input
+      formControlName="subjectID"
+      placeholder="ID przedmiotu"
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <button
+    class="dodaj-button"
+    mat-raised-button
+    mat-dialog-close
+    [disabled]="!editTeacherForm.valid"
+    (click)="editTeacher()"
+    >Edytuj
+  </button>
+
+  <button
+    class="anuluj-button"
+    mat-raised-button
+    mat-dialog-close>
+    Anuluj
+  </button>
+
+</form>

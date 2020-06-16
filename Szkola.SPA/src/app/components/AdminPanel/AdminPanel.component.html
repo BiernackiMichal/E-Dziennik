@@ -1,0 +1,80 @@
+<div class="nav-bar">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button (click)="logout()" mat-menu-item>
+      <mat-icon>input</mat-icon>
+      <span>Wyloguj</span>
+    </button>
+
+    <button routerLink="/classes" mat-menu-item>
+      <mat-icon>people</mat-icon>
+      <span>Klasy</span>
+    </button>
+
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Dodaj</button>
+  </mat-menu>
+</div>
+
+<mat-menu #vertebrates="matMenu">
+  <button routerLink="/add-student-form" mat-menu-item>
+    <mat-icon>contacts</mat-icon>
+    <span>Ucznia</span>
+  </button>
+
+  <button routerLink="/add-teacher-form" mat-menu-item>
+    <mat-icon>contacts</mat-icon>
+    <span>Nauczyciela</span>
+  </button>
+
+  <button routerLink="/add-class-form" mat-menu-item>
+    <mat-icon>contacts</mat-icon>
+    <span>Klasę</span>
+  </button>
+
+  <button routerLink="/add-subject-form" mat-menu-item>
+    <mat-icon>contacts</mat-icon>
+    <span>Przedmiot</span>
+  </button>
+</mat-menu>
+
+<mat-list >
+  <div mat-subheader>Przedmioty:</div>
+  <mat-list-item *ngFor="let subject of subjects">
+    <mat-icon (click)="openEditSubjectDialog(subject)" mat-list-icon
+    >school
+    </mat-icon>
+    <div class="mat-line" mat-line>
+      <div class="subject-name">
+      {{ subject.name }}
+    </div>({{subject.subjectID}})
+      <button
+        class="delete-button"
+        mat-raised-button
+        (click)="openDeleteSubjectDialog(subject)"
+      >
+        usuń
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>
+
+<mat-list>
+  <div mat-subheader>Nauczyciele:</div>
+  <mat-list-item *ngFor="let teacher of teachers">
+    <mat-icon (click)="openEditTeacherDialog(teacher)" mat-list-icon
+      >person</mat-icon
+    >
+    <div mat-line>
+      {{ teacher.firstName }} {{ teacher.lastName }}
+      <button
+        class="delete-button"
+        mat-raised-button
+        (click)="openDeleteTeacherDialog(teacher)"
+      >
+        Usuń
+      </button>
+    </div>
+  </mat-list-item>
+</mat-list>

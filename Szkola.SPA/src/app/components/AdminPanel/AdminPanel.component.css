@@ -1,0 +1,66 @@
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+mat-list {
+  flex-grow: 1;
+  overflow: auto;
+  height: 400px;
+  width: 100%;
+}
+
+mat-list > div {
+  color: black;
+  font-size: medium;
+  font-style: italic;
+}
+
+
+.nav-bar {
+  background-color: rgb(121, 121, 226);
+  white-space: pre;
+  color: white;
+  font-size: larger;
+  padding-bottom: 66px;
+}
+
+mat-icon{
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+mat-icon:hover {
+transform: scale(1.5);
+color: black;
+}
+mat-list-item  mat-icon   {
+  color: rgb(27, 89, 223);
+}
+.delete-button {
+  right: 10px;
+  top: 10px;
+  position: absolute;
+  background-color: black;
+  color: white;
+  transition: 1s ease-in-out;
+}
+.delete-button:hover {
+  background-color: red;
+  color: black;
+}
+
+mat-list {
+  border-bottom: 1px solid gray;
+}
+.mat-line *{
+  display: inline-block;
+  vertical-align: bottom;
+  white-space: nowrap;
+
+}
+.subject-name {
+  max-width:150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,0 +1,204 @@
+@media (max-width: 480px) {
+  .name {
+    width: 280px;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .subject-name {
+    display: inline-block;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .table {
+    width: 1000px;
+  }
+
+  .table :nth-child(1) {
+    width: 100px;
+  }
+
+  .add-grade-icon {
+    right: 25px;
+  }
+}
+.subject-row {
+  align-items: center;
+  color: white;
+  white-space: nowrap;
+}
+
+
+.subject-name {
+  display: inline-block;
+  max-width: 250px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: transform 1s ease;
+}
+.subject-name:hover {
+  overflow: visible;
+  color: black;
+  top: inherit;
+
+}
+
+.subjects-header {
+  width: 200px;
+  color: white;
+  font-size: larger;
+}
+
+.add-grade-icon {
+  color: blue;
+  cursor: pointer;
+  transition: transform 1s ease;
+  z-index: 900;
+}
+
+.add-grade-icon:hover {
+  color: red;
+  transform: scale(1.5);
+}
+
+.nav-bar {
+  background-color: rgb(121, 121, 226);
+  white-space: pre;
+  color: white;
+  font-size: larger;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.grade-rate-1 {
+  display: inline;
+  color: white;
+  cursor: pointer;
+  font-size: medium;
+}
+.grade-rate-1:hover {
+  color: black;
+}
+
+.grade-rate-2 {
+  display: inline;
+  color: green;
+  cursor: pointer;
+  font-size: medium;
+}
+.grade-rate-2:hover {
+  color: black;
+}
+
+.grade-rate-3 {
+  display: inline;
+  color: red;
+  cursor: pointer;
+  font-size: medium;
+}
+.grade-rate-3:hover {
+  color: black;
+}
+
+.mat-cell:first-child,
+mat-footer-cell:first-child,
+mat-header-cell:first-child {
+  padding-left: 0;
+}
+td {
+  user-select: none;
+  font-size: 16px;
+  font-family: Verdana, Sans-Serif;
+  height: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 2px solid rgba(0, 0, 0, 0.12);
+  border-right: 2px solid rgba(0, 0, 0, 0.12);
+  color: white;
+}
+
+.grades-header {
+  color: white;
+  font-size: larger;
+  text-align: center;
+  user-select: none;
+}
+
+table {
+  width: 100%;
+  background-color: orange;
+}
+
+.grade-description {
+  position: absolute;
+  background-color: rgb(121, 121, 226);
+  padding: 10px;
+  border-color: rgb(121, 121, 226);
+  border-width: 1px;
+  border-style: solid;
+  overflow: hidden;
+  word-break: break-word;
+  color: white;
+  z-index: 1000;
+}
+
+.hide-desc {
+  visibility: collapse;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: 0.5s ease-in-out;
+}
+.menu:hover {
+  color: black;
+  transform: scale(1.4);
+}
+
+.back-button {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  cursor: pointer;
+  transition: transform 1s ease-in-out;
+}
+
+.back-button:hover {
+  color: black;
+
+  transform: scale(1.5);
+}
+
+.spinner {
+  position: fixed;
+  left: 50%;
+  top: 35%;
+}
+
+.hide-desc {
+  visibility: hidden;
+}
+
+.grades-container {
+  overflow: auto;
+}
+
+.average-less-than-2 {
+  width: 30px;
+  color: red;
+}
+.average-higher-than-2 {
+  width: 30px;
+  color: green;
+}
+.average-grade-container th {
+  max-width: 40px;
+}

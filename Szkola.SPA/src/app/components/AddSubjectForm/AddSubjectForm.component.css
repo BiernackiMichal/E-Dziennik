@@ -1,0 +1,56 @@
+@media (max-width: 1200px) {
+  div > * {
+    flex-wrap: wrap;
+    display: flex;
+    width: auto;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+  }
+}
+
+@media (min-width: 767px) {
+  div > * {
+    background-color: orange;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+}
+
+mat-card-content * {
+  width: 100%;
+}
+
+.add-subject-form {
+  background-color: orange;
+  width: 700px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.add-button {
+  color: yellow;
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.cancel-button {
+  color: yellow;
+  background-color: black;
+}
+
+.mat-option {
+  color: yellow;
+  background: black;
+}
+
+.mat-option:hover {
+  background-color: rgb(54, 53, 52);
+}
+
+.mat-form-field {
+  border-bottom-width: 1;
+}

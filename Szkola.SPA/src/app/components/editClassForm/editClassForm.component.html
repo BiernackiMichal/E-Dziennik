@@ -1,0 +1,76 @@
+<div class="dialog-container">
+<h2 mat-dialog-title>klasa {{ schoolClassName }}</h2>
+<form [formGroup]="schoolClassForm">
+  <mat-form-field>
+    <input formControlName="name" placeholder="Klasa" matInput />
+  </mat-form-field>
+  <br />
+  <small
+    class="error"
+    *ngIf="
+      getFormControl('name').errors?.required && getFormControl('name').touched
+    "
+  >
+    Nazwa klasy jest wymagana</small
+  >
+  <br />
+
+  <mat-form-field>
+    <input formControlName="description" placeholder="Opis" matInput />
+  </mat-form-field>
+  <br />
+  <small
+    class="error"
+    *ngIf="
+      getFormControl('description').errors?.required &&
+      getFormControl('description').touched
+    "
+  >
+    Opis jest wymagany</small
+  >
+  <br />
+
+  <mat-form-field>
+    <input formControlName="educator" placeholder="Wychowawca" matInput />
+  </mat-form-field>
+  <br />
+  <small
+    class="error"
+    *ngIf="
+      getFormControl('educator').errors?.required &&
+      getFormControl('educator').touched
+    "
+  >
+    Wychowawca jest wymagany</small
+  >
+  <br />
+  <button
+    class="edit-button"
+    mat-raised-button
+    mat-dialog-close
+    [disabled]="!schoolClassForm.valid"
+    (click)="editClass()"
+  >
+    Edytuj
+  </button>
+
+  <button
+    class="delete-button"
+    mat-raised-button
+    mat-dialog-close
+    (click)="deleteClass()"
+  >
+    Usuń
+  </button>
+
+  <br />
+  <button
+    class="cancel-button"
+    mat-raised-button
+    mat-dialog-close
+    mat-dialog-close
+  >
+    Anuluj
+  </button>
+</form>
+</div>

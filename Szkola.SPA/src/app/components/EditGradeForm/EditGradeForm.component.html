@@ -1,0 +1,63 @@
+<div>
+<h2 mat-dialog-title >{{getSubjectName()}}</h2>
+<form [formGroup]="editGradeForm" (ngSubmit)="editGrade()">
+<mat-form-field>
+  <input
+  formControlName="description"
+  placeholder="Opis oceny"
+  required
+  matInput
+  autocomplete="off"
+  class="form-control"
+  >
+  </mat-form-field>
+
+  <br>
+
+  <small class="error" *ngIf="getFormControl('description').errors?.required && getFormControl('description').touched ">Opis jest wymagany</small>
+  <small class="error" *ngIf="getFormControl('description').errors?.pattern ">Opis nie może być dłuższy, niż 100 znaków</small>
+
+  <br>
+
+<mat-form-field>
+  <input
+    formControlName="value"
+    placeholder="Ocena"
+    matInput
+    autocomplete="off"
+    class="form-control">
+  </mat-form-field>
+
+  <br>
+
+  <small class="error" *ngIf="getFormControl('value').errors?.required && getFormControl('value').touched ">Ocena jest wymagana.</small>
+  <small class="error" *ngIf="getFormControl('value').errors?.pattern">Ocena musi być z przedziału 1-6</small>
+
+  <br>
+
+  <mat-form-field>
+    <mat-label>Waga oceny</mat-label>
+  <mat-select formControlName="rate" >
+    <mat-option class="mat-option" *ngFor="let rate of rates" [value]="rate">
+      {{rate}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</form>
+<br>
+
+
+
+<button class="edytuj-button" mat-raised-button mat-dialog-close
+[disabled]="!editGradeForm.valid"
+(click)="editGrade()"
+>Edytuj</button>
+
+<button class="usuń-button" mat-raised-button mat-dialog-close
+(click)="deleteGrade()"
+>Usuń</button>
+
+<br>
+<button class="anuluj-button" mat-raised-button mat-dialog-close mat-dialog-close>Anuluj</button>
+</div>
+

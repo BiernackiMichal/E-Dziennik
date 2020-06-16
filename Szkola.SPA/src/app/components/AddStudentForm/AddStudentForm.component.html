@@ -1,0 +1,124 @@
+
+<div >
+  <mat-card class="add-student-form">
+    <mat-card-header >
+      <mat-card-title >Formularz dodawania ucznia</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]='student' (ngSubmit)="registerStudent()">
+        <mat-form-field class="ng-untouched">
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Imię"
+            type="text"
+            formControlName="firstName"
+
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Nazwisko"
+            type="text"
+            formControlName="lastName"
+
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Klasa"
+            type="text"
+            formControlName="schoolClass"
+            pattern="^[A-Z0-9a-z]{1,2}$"
+
+          />
+        </mat-form-field>
+        <div style="color: red;" *ngIf="getFormControl('schoolClass').errors && (getFormControl('schoolClass').invalid || getFormControl('schoolClass').touched)">
+          <small *ngIf="getFormControl('schoolClass').errors?.required && getFormControl('schoolClass').touched ">Klasa jest wymagana</small>
+          <small *ngIf="getFormControl('schoolClass').errors.pattern ">Do dwóch znaków</small>
+      </div>
+        <br>
+
+
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Data urodzenia"
+            type="date"
+            formControlName="birthDate"
+
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Adres"
+            type="text"
+            formControlName="address"
+
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Telefon kontaktowy"
+            type="tel"
+            formControlName="phone"
+
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Nazwa użytkownika"
+            type="text"
+            formControlName="username"
+
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            autocomplete="off"
+            matInput
+            placeholder="Hasło"
+            type="text"
+            formControlName="password"
+
+          />
+        </mat-form-field>
+
+
+          <button
+            class="dodaj-button"
+            mat-raised-button
+            type="submit"
+            [disabled]="!student.valid"
+          >
+            Dodaj ucznia
+          </button>
+
+
+
+        <button
+           class="anuluj-button"
+            mat-raised-button
+            routerLink="/admin-panel"
+            >
+            Anuluj
+          </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

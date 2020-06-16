@@ -1,0 +1,47 @@
+<div class="nav-bar">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button (click)="logout()" mat-menu-item>
+      <mat-icon>input</mat-icon>
+      <span>Wyloguj</span>
+    </button>
+
+    <button
+      *ngIf="userRole === 'Admin'"
+      routerLink="/admin-panel"
+      mat-menu-item
+    >
+      <mat-icon>input</mat-icon>
+      <span>Panel Admina</span>
+    </button>
+  </mat-menu>
+</div>
+
+<table mat-table [dataSource]="getDataSource()" class="table">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Klasy</th>
+    <td
+      mat-cell
+      *matCellDef="let schoolClass"
+      (click)="setClassDataInLocalStorage(schoolClass)"
+      class="class-name"
+    >    {{ schoolClass.name }}
+      <button mat-icon-button *ngIf="userRole == 'Admin'" onclick="event.stopPropagation()"   (click)="openEditClassDialog(schoolClass)">
+        <mat-icon class="edit-class-icon">edit</mat-icon>
+      </button>
+
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="educator">
+    <th mat-header-cell *matHeaderCellDef>Wychowawca</th>
+    <td mat-cell *matCellDef="let data">{{ data.educator }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
+</table>

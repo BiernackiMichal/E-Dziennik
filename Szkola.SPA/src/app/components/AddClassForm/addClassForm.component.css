@@ -1,0 +1,35 @@
+
+
+mat-card-content * {
+  width: 100%;
+}
+
+.add-class-form {
+  background-color: orange;
+  width: 30%;
+  height: fit-content;
+  position: absolute;
+  top: 30%;
+  left: 35%;
+}
+
+.dodaj-button {
+  color: yellow;
+  background-color: black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.anuluj-button {
+  color: yellow;
+  background-color: black;
+}
+
+
+.mat-form-field {
+  border-bottom-width: 1;
+}
+
+.error {
+  color: red;
+}

@@ -1,0 +1,86 @@
+<div class="dialog-container">
+<form [formGroup]='editStudentForm'>
+  <mat-form-field>
+    <input
+    formControlName="firstName"
+    placeholder="Imię"
+    matInput/>
+  </mat-form-field>
+
+  <br>
+    <small class="error" *ngIf="getFormControl('firstName').errors?.required && getFormControl('firstName').touched"> Imię jest wymagane</small>
+  <br>
+
+  <mat-form-field>
+    <input
+    formControlName="lastName"
+    placeholder="Nazwisko"
+    matInput/>
+  </mat-form-field>
+
+  <br>
+    <small class="error" *ngIf="getFormControl('lastName').errors?.required && getFormControl('lastName').touched"> Nazwisko jest wymagane</small>
+  <br>
+
+  <mat-form-field>
+    <input
+    formControlName="birthDate"
+    placeholder="Data urodzenia"
+    matInput
+    />
+  </mat-form-field>
+
+  <br>
+    <small class="error" *ngIf="getFormControl('birthDate').errors?.required && getFormControl('birthDate').touched"> Data urodzenia jest wymagana</small>
+  <br>
+
+  <mat-form-field>
+    <input
+    formControlName='phone'
+    placeholder="numer telefonu"
+    matInput
+    />
+  </mat-form-field>
+
+  <br>
+    <small class="error" *ngIf="getFormControl('phone').errors?.required && getFormControl('phone').touched"> Numer kontakowy jest wymagany</small>
+  <br>
+
+  <mat-form-field>
+   <input
+    formControlName="address"
+    placeholder="Adress"
+    matInput
+    />
+  </mat-form-field>
+
+  <br>
+    <small class="error" *ngIf="getFormControl('address').errors?.required && getFormControl('address').touched"> Adres jest wymagany</small>
+  <br>
+</form>
+
+<button
+  class="edit-button"
+  mat-raised-button
+  mat-dialog-close
+  [disabled]="!editStudentForm.valid"
+  (click)="editStudent()">
+  Edytuj
+</button>
+
+<button class="delete-button"
+  mat-raised-button
+  mat-dialog-close
+  (click)="deleteStudent()"
+  >Usuń
+</button>
+
+<br>
+
+<button
+  class="cancel-button"
+  mat-raised-button
+  mat-dialog-close >
+  Anuluj
+</button>
+</div>

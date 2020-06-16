@@ -1,0 +1,32 @@
+
+
+.grade {
+  margin-bottom: 0px;
+}
+
+.anuluj-button {
+  right: 0px;
+  width: 100%;
+  margin-top: 20px;
+  background-color: lavender;
+}
+
+.edytuj-button {
+  background-color: orange;
+  left: 0;
+  width: 100px;
+  margin-right: 30px;
+}
+
+.usuń-button {
+  background-color: red;
+  right: 0px;
+}
+
+.error {
+  color: red;
+}
+.form-control {
+  width: 100%;
+}
+

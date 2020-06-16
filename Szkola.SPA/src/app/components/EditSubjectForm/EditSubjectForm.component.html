@@ -1,0 +1,43 @@
+<h2 mat-dialog-title >{{getSubjectName()}}</h2>
+
+<form [formGroup]="editSubjectForm" >
+
+  <mat-form-field>
+    <input
+      formControlName="name"
+      placeholder="Przedmiot"
+      required
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field>
+    <input
+      formControlName="description"
+      placeholder="Opis"
+      required
+      matInput
+    >
+  </mat-form-field>
+
+  <br>
+
+  <button
+    class="edit-button"
+    mat-raised-button mat-dialog-close
+    [disabled]="!editSubjectForm.valid"
+    (click)="editSubject()"
+    >Edytuj
+  </button>
+
+  <button
+    class="cancel-button"
+    mat-raised-button
+    mat-dialog-close
+    >Anuluj
+  </button>
+
+</form>
+

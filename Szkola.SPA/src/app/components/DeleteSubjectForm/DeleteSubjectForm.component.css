@@ -1,0 +1,9 @@
+.cancel-button {
+  right: 0px;
+  margin-left: 30px;
+  background-color: lavender;
+}
+
+.delete-button {
+  background-color: red;
+}

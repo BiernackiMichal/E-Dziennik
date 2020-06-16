@@ -1,0 +1,19 @@
+
+<h2 mat-dialog-title >Czy na pewno usunąć: <br> {{teacher.firstName}} {{teacher.lastName}}</h2>
+
+<button
+  class="usuń-button"
+  mat-raised-button
+  mat-dialog-close
+  (click)="deleteTeacher()">
+  Usuń
+</button>
+
+<button
+  class="anuluj-button"
+  mat-raised-button
+  mat-dialog-close>
+  Anuluj
+</button>
+
+

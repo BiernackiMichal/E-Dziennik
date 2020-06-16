@@ -1,0 +1,107 @@
+
+.name {
+  cursor: pointer;
+  align-items: center;
+  user-select: none;
+}
+.name:hover {
+  transition: 2s;
+  background-color: rgb(255, 198, 11);
+  color: black;
+}
+
+.student-description {
+  position: absolute;
+  background-color: green;
+  padding: 10px;
+  border-color:  violet;
+  border-width: 1px;
+  border-style: solid;
+  overflow:hidden;
+  word-break: break-word;
+  color: white;
+}
+
+.hide-desc {
+  visibility: hidden;
+}
+
+table {
+  width: 100%;
+  word-break: break-word;
+  background-color: orange;
+}
+
+th {
+  color: white;
+  font-size: medium;
+  user-select: none;
+}
+
+.nav-bar {
+  background-color: rgb(121, 121, 226);
+  white-space: pre;
+  color: white;
+  font-size: larger;
+  padding-bottom: 22px;
+}
+
+.menu {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: .5s ease-in-out;
+}
+.menu:hover {
+  color: black;
+  transform: scale(1.4);
+
+}
+
+.back-button {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  cursor: pointer;
+  transition: transform 1s ease-in-out;
+}
+
+.back-button:hover {
+  color: black;
+
+  transform: scale(1.5);
+}
+
+.spinner {
+  position: fixed;
+  left: 50%;
+  top: 35%;
+}
+
+.edit-student-icon {
+  cursor: pointer;
+  transition: 1s ease-in-out;
+  color: blue;
+}
+.edit-student-icon:hover {
+  transform: scale(1.4);
+  color: red;
+
+}
+.edit-student-row {
+  width: 30px;
+}
+td {
+  font-size:16px;
+  font-family: Verdana,Sans-Serif;
+  height: 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-left: 2px solid rgba(0, 0, 0, 0.12);
+  border-right: 2px solid rgba(0, 0, 0, 0.12);
+  width: fit-content;
+  color: white;
+}
+.mat-cell:first-child, mat-footer-cell:first-child, mat-header-cell:first-child {
+  padding-left: 0;
+}

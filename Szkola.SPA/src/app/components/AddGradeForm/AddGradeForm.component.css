@@ -1,0 +1,27 @@
+
+
+.grade-desc {
+margin-bottom: 0px;
+}
+
+.cancel-button {
+  right: 0px;
+  margin-left: 30px;
+  background-color: lavender;
+}
+
+.add-button {
+  background-color: orange;
+}
+.error {
+  color: red;
+}
+
+.title{
+  width:200px;
+  overflow:hidden;
+  height:30px;
+  line-height:30px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

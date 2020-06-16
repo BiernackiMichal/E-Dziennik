@@ -1,0 +1,54 @@
+<mat-card class="add-class-form">
+  <mat-card-content>
+    <form   [formGroup]="addClassForm"
+    (ngSubmit)="addClass()">
+    <mat-form-field class="form-control">
+      <input
+        placeholder="Klasa"
+        matInput
+        class="form-control"
+        type="text"
+        formControlName="name"
+      />
+    </mat-form-field>
+    <small class="error" *ngIf="getFormControl('name').errors?.required && getFormControl('name').touched"> Klasa jest wymagana</small>
+    <small class="error" *ngIf="getFormControl('name').errors?.maxlength">Nazwa jest za długa</small>
+
+    <mat-form-field>
+      <input
+        placeholder="Opis"
+        matInput
+        class="form-control"
+        type="text"
+        formControlName="description"
+      />
+    </mat-form-field>
+    <small class="error" *ngIf="getFormControl('description').errors?.required && getFormControl('description').touched"> Opis jest wymagany</small>
+    <small class="error" *ngIf="getFormControl('description').errors?.maxlength">Opis jest za długi</small>
+
+    <mat-form-field>
+      <input
+        placeholder="Wychowawca"
+        matInput
+        class="form-control"
+        type="text"
+        formControlName="educator"
+      />
+    </mat-form-field>
+    <small class="error" *ngIf="getFormControl('educator').invalid && getFormControl('educator').touched"> Wychowawca jest wymagany</small>
+
+    <button
+      class="dodaj-button"
+      mat-raised-button
+      type="submit"
+      [disabled]="!addClassForm.valid">
+      Dodaj klasę
+    </button>
+
+    <button class="anuluj-button" mat-raised-button routerLink="/admin-panel">
+      Anuluj
+    </button>
+  </form>
+
+  </mat-card-content>
+</mat-card>

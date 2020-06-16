@@ -1,0 +1,6 @@
+node_modules
+bin
+wwwroot
+appsettings.json
+.vscode
+obj

@@ -1,0 +1,134 @@
+<div class="nav-bar">
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    class="menu" >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button
+      (click)="logoutAndNaviateToLoginComponent()"
+      mat-menu-item>
+      <mat-icon>input</mat-icon>
+      <span>Wyloguj</span>
+    </button>
+
+    <button
+      *ngIf="userRole === 'Admin'"
+      routerLink="/admin-panel"
+      mat-menu-item>
+      <mat-icon>input</mat-icon>
+      <span>Panel Admina</span>
+    </button>
+  </mat-menu>
+
+  <br>
+
+  <mat-icon
+    class="back-button"
+    *ngIf="userRole === 'Admin' || userRole === 'Teacher'"
+    routerLink="/students"
+    >keyboard_backspace
+  </mat-icon>
+
+  <div class="name">
+    Uczeń: {{name}} {{lastName}}
+    <br>
+  </div>
+
+  Klasa: {{getClassName()}}
+</div>
+
+<div class="grades-container">
+ <table class="table" mat-table [dataSource]="getDataSource()" matSort >
+
+    <ng-container sticky matColumnDef="subjects"  >
+      <th class="subjects-header" mat-header-cell *matHeaderCellDef mat-sort-header> Przedmiot </th>
+      <td class="subject-row" mat-cell *matCellDef="let subject">
+        <div class="subject-name">
+          {{subject.name}}
+        </div>
+        <mat-icon  class="add-grade-icon"   mat-icon-button  *ngIf="teacherSubjectID == subject.subjectID || userRole === 'Admin'"
+          (click)="openAddGradeDialog(subject)"
+          >edit
+        </mat-icon>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="gradesFirstHalf">
+      <th class="grades-header" mat-header-cell *matHeaderCellDef mat-sort-header> I półrocze </th>
+      <td mat-cell *matCellDef="let data">
+        <div
+          *ngFor="let grade of grades"
+          (click)="openEditGradeDialog(grade)"
+          (mouseover)="coordinates($event);
+          showGradeDescription(grade)"
+          (mouseleave)="hideGradeDesc()"
+          [ngClass]="{
+            'grade-rate-1': grade.rate == 1,
+            'grade-rate-2': grade.rate == 2,
+            'grade-rate-3': grade.rate == 3
+          }">
+          {{grade  | showGradesBySubject: data.name: '01/01/2018': '06/18/2019'}}
+        </div>
+    </ng-container>
+
+
+    <ng-container matColumnDef="gradesSecondHalf">
+      <th class="grades-header" mat-header-cell *matHeaderCellDef mat-sort-header> II półrocze </th>
+      <td mat-cell *matCellDef="let data">
+        <div style="display: inline" *ngFor="let grade of grades"
+          (click)="openEditGradeDialog(grade)"
+          (mouseover)="coordinates($event);
+          showGradeDescription(grade)"
+          (mouseleave)="hideGradeDesc()"
+          [ngClass]="{
+            'grade-rate-1': grade.rate == 1,
+            'grade-rate-2': grade.rate == 2,
+            'grade-rate-3': grade.rate == 3
+          }">
+          {{grade  | showGradesBySubject: data.name: '06/19/2019': '04/21/2021'}}
+        </div>
+    </ng-container>
+
+
+    <ng-container class="average-grade-container" matColumnDef="averageFirstHalf">
+      <th class="grades-header" mat-header-cell *matHeaderCellDef mat-sort-header> śr. I </th>
+      <td  [ngClass]="{
+        'average-less-than-2': data.averageFirstHalf < 2,
+        'average-higher-than-2': data.averageFirstHalf >= 2
+        }"
+        mat-cell
+        *matCellDef="let data"
+        >{{data.averageFirstHalf | number : '1.2-2'}}
+      </td>
+    </ng-container>
+
+
+    <ng-container class="average-grade-container" matColumnDef="averageSecondHalf">
+      <th class="grades-header" mat-header-cell *matHeaderCellDef mat-sort-header> śr. II </th>
+      <td   [ngClass]="{
+        'average-less-than-2': data.averageSecondHalf < 2,
+        'average-higher-than-2': data.averageSecondHalf >= 2
+        }"
+        mat-cell
+        *matCellDef="let data"
+        >{{data.averageSecondHalf | number : '1.2-2'}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+<div class="hide-desc" id="desc"  >
+  Opis: {{getGradeDetails()?.description}} <br> Dodano: {{getGradeDetails()?.dateTime| date: 'dd/MM/yyyy'}}
+</div>
+
+<div *ngIf="isSpinnerVisible == true">
+  <mat-spinner class="spinner"></mat-spinner>
+</div>

@@ -1,0 +1,83 @@
+<div class="nav-bar">
+
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    class="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+
+    <button
+      (click)="logoutAndNavigateToHome()"
+       mat-menu-item>
+      <mat-icon>input</mat-icon>
+      <span>Wyloguj</span>
+    </button>
+
+    <button
+      mat-menu-item >
+      <mat-icon>info</mat-icon>
+      <span>Aktualności</span>
+    </button>
+
+    <button
+      mat-menu-item>
+      <mat-icon>contacts</mat-icon>
+      <span>Kontakt</span>
+    </button>
+  </mat-menu>
+
+  <br>
+
+  <mat-icon
+    class="back-button"
+    routerLink="/classes" >
+    keyboard_backspace
+  </mat-icon>
+
+  Klasa {{getClassName()}}
+</div>
+
+<table mat-table [dataSource]="getDataSource()" >
+
+  <ng-container matColumnDef="name">
+    <th
+      mat-header-cell
+      *matHeaderCellDef>
+      Uczniowie
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let data"
+      (click)="setStudentInLocalStorageAndNavigateToSubjects(data)"
+      class="name"
+      (mouseover)="coordinates($event);
+      showStudentDescription(data)"
+      (mouseleave)="hideStudentDescription()">
+      <button *ngIf="userRole == 'Admin'"
+      mat-icon-button
+      class="edit-student-icon"
+      onclick="event.stopPropagation()"
+      (click)="openEditStudentDialog(data)" >
+      <mat-icon>
+        edit
+      </mat-icon>
+    </button>
+      {{data.firstName}} {{data.lastName}}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="hide-desc" id="desc"  >
+  Imię: {{studentDescription.firstName}} <br> Nazwisko:{{studentDescription.lastName}} <br> Data urodzenia: {{studentDescription.birthDate| date: 'dd/MM/yyyy'}}
+  <br> Adres: {{studentDescription.address}} <br> Kontakt: {{studentDescription.phone}}
+</div>
+
+<div *ngIf="IsSpinnerVisible == true">
+  <mat-spinner class="spinner"></mat-spinner>
+</div>

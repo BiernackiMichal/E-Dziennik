@@ -1,0 +1,81 @@
+<div class="dialog-container" >
+<h2 class="title" mat-dialog-title>{{ subjectName }}</h2>
+<form #addGradeForm="ngForm">
+  <mat-form-field>
+    <input
+      class="grade-desc"
+      name="gradeDesc"
+      #gradeDesc="ngModel"
+      pattern="^[A-Za-z0-9a-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]{1,100}$"
+      placeholder="Opis oceny"
+      required
+      matInput
+    [(ngModel)]="grade.description"
+    />
+  </mat-form-field>
+  <div *ngIf="gradeDesc.errors && (gradeDesc.invalid || gradeDesc.touched)">
+    <small class="error"  *ngIf="gradeDesc.errors?.required && gradeDesc.touched"
+      >Opis jest wymagany</small
+    >
+    <small class="error" *ngIf="gradeDesc.errors.pattern">Opis krótszy, niż 100 znaków</small>
+  </div>
+  <br />
+
+  <mat-form-field>
+    <input
+      class="grade"
+      name="grade"
+      #gradeValue="ngModel"
+      placeholder="Ocena"
+      required
+      matInput
+      [(ngModel)]="grade.value"
+      pattern="^(np|1|1\+|2|2\-|2\+|3|3\-|3\+|4|4\-|4\+|5|5\+|5\-|6)$"
+    />
+    <div
+      *ngIf="gradeValue.errors && (gradeValue.invalid || gradeValue.touched)"
+    >
+      <small class="error"  *ngIf="gradeValue.errors?.required && gradeValue.touched"
+        >Ocena jest wymagana.</small
+      >
+      <small class="error"  *ngIf="gradeValue.errors.pattern"
+        >Ocena musi być z przedziału 1-6</small
+      >
+    </div>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>Waga oceny</mat-label>
+    <mat-select [(ngModel)]="grade.rate"  name="gradeRate" required>
+      <mat-option
+        class="mat-option"
+        *ngFor="let gradeRate of gradeRates"
+        [value]="gradeRate"
+      >
+        {{ gradeRate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<br />
+
+<button
+  class="add-button"
+  mat-raised-button
+  mat-dialog-close
+  [disabled]="!addGradeForm.valid"
+  (click)="addGrade()"
+>
+  Dodaj
+</button>
+
+<button
+  class="cancel-button"
+  mat-raised-button
+  mat-dialog-close
+>
+  Anuluj
+</button>
+</div>

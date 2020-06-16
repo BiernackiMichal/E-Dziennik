@@ -1,0 +1,23 @@
+<h2 style="color: red;" mat-dialog-title > Czy na pewno usunąć przedmiot:
+  <br>
+  <div style="color: black;">
+    {{subject.name}}
+  </div>
+</h2>
+
+<button
+  class="delete-button"
+  mat-raised-button
+  mat-dialog-close
+  (click)="deleteSubject()">
+  Usuń
+</button>
+
+<button
+  class="cancel-button"
+  mat-raised-button
+  mat-dialog-close>
+  Anuluj
+</button>
+
+
