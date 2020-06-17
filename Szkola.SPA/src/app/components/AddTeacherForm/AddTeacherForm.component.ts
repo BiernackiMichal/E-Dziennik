@@ -17,7 +17,7 @@ private addTeacherForm = new FormGroup({
   firstName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   subject: new FormControl('', Validators.required),
-  email: new FormControl('', [Validators.required, Validators.minLength(100)]),
+  email: new FormControl('', [Validators.required, Validators.maxLength(100)]),
   phone: new FormControl('', Validators.maxLength(100)),
   username: new FormControl('', [Validators.required, Validators.minLength(4) , Validators.maxLength(20)]),
   password: new FormControl('', [Validators.required, Validators.minLength(6) , Validators.maxLength(12)])
