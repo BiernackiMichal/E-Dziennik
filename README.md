@@ -1,4 +1,4 @@
-E-school diary live: dziennik-001-site1.etempurl.com
+E-school diary live: http:dziennik-001-site1.etempurl.com
 
 In this project user logged as teacher can add, edit or delete students grades depends on his subject. While adding grades teacher can choose their ratings and write a description.
 Added grades and their ratings are calculated and shown as weighted average for every student individually.
