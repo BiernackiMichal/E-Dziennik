@@ -1,6 +1,4 @@
-E-school diary live: http://dziennik-001-site1.etempurl.com
 
-FIRST login might take few seconds.
 
 In this project:
 - user logged as teacher can add, edit or delete students grades depends on his subject.
@@ -36,3 +34,8 @@ login as:
 -teacher: username- teacher password- teacher, mark as nauczyciel
 
 -admin: (to add, edit, delete student, teacher, subject, etc) username,password(in private message)
+
+
+FIRST login might take few seconds.
+
+E-school diary live: http://dziennik-001-site1.etempurl.com
