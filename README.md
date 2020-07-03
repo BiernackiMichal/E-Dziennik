@@ -1,4 +1,4 @@
-
+E-school diary
 
 In this project:
 - user logged as teacher can add, edit or delete students grades depends on his subject.
@@ -38,4 +38,4 @@ login as:
 
 FIRST login might take few seconds.
 
-E-school diary live: http://dziennik-001-site1.etempurl.com
+live: http://dziennik-001-site1.etempurl.com
