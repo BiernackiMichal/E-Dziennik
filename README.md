@@ -38,4 +38,4 @@ login as:
 
 FIRST login might take few seconds.
 
-live: http://dziennik1-001-site1.gtempurl.com
+live: http://dziennik12-001-site1.ctempurl.com
