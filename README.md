@@ -10,13 +10,6 @@ In this project:
 - If user is logged as student, he will see only his grades, and he won't be able to change them. 
 
 
-In this project i've learned how to:
-- validate user
-- connect frontend written in Angular with backend  written in C#
-- to create relational database using Entity framework
-- validate forms
-
-
 Technologies used in this project:
 - Angular2+
 - TypeScript
@@ -27,15 +20,7 @@ Technologies used in this project:
 - REST
 - Node.js
 
-login as:
-
--student: username- student passowrd- student, mark as uczeń
-
--teacher: username- teacher password- teacher, mark as nauczyciel
-
--admin: (to add, edit, delete student, teacher, subject, etc) username,password(in private message)
-
 
 FIRST login might take few seconds.
 
-live: http://dziennik12-001-site1.ctempurl.com
+
